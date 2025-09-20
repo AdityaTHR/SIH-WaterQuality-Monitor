@@ -1,0 +1,30 @@
+### Get system status
+GET http://localhost:5000/api/status
+
+### Get latest readings for all sensors
+GET http://localhost:5000/api/sensors/latest
+
+### Get alerts for water quality issues
+GET http://localhost:5000/api/sensors/alerts
+
+### Get fresh reading for a specific region (replace Guwahati with any region)
+GET http://localhost:5000/api/sensors/reading/Guwahati
+
+### Manually simulate sensor data for all regions
+POST http://localhost:5000/api/sensors/simulate
+Content-Type: application/json
+
+{
+  "region": "all",
+  "force_alert": false,
+  "data_source": "auto"
+}
+
+### Manually simulate sensor data for Shillong with forced alert
+POST http://localhost:5000/api/sensors/simulate
+Content-Type: application/json
+
+{
+  "region": "Shillong",
+  "force_alert": true
+}
